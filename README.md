@@ -1,6 +1,6 @@
-SQL project
-Database: advantureworks2019
-Table Schema: https://support.google.com/analytics/answer/3437719?hl=en
+SQL project <br/>
+Database: advantureworks2019<br/>
+Table Schema: https://support.google.com/analytics/answer/3437719?hl=en <br/>
 
 **Query 01: calculate total visit, pageview, transaction for Jan, Feb and March 2017**
 <br/>
