@@ -32,7 +32,7 @@
 
 <b>Query 01: Calculate total visit, pageview, transaction for Jan, Feb and March 2017</b>
 <br/>
-```
+```sql
 SELECT 
   FORMAT_DATE('%Y%m',PARSE_DATE('%Y%m%d' , date)) AS month,
   SUM(totals.visits) AS visits,
@@ -55,7 +55,7 @@ ORDER BY month
 
 <b>Query 02: Bounce rate per traffic source in July 2017</b>
 <br/>
-```
+```sql
 SELECT 
   trafficSource.source AS source,
   SUM(totals.visits) AS total_visits,
@@ -85,7 +85,7 @@ ORDER BY total_visits DESC
 
 <b>Query 03: Revenue by traffic source by week, by month in June 2017</b>
 <br/>
-```
+```sql
 with 
 month_data as(
   SELECT
@@ -138,7 +138,7 @@ order by time_type
 
 <b>Query 04: Average number of pageviews by purchaser type (purchasers vs non-purchasers) in June, July 2017.</b>
 <br/>
-```
+```sql
 WITH
   purchase_pageview AS(
     SELECT 
@@ -186,7 +186,7 @@ ORDER BY month
 
 <b>Query 05: Average number of transactions per user that made a purchase in July 2017.</b>
 <br/>
-```
+```sql
 SELECT 
   FORMAT_DATE('%Y%m',PARSE_DATE('%Y%m%d' , date)) AS month,
   ROUND(SUM(totals.transactions) /COUNT(DISTINCT(fullVisitorId)), 9) AS avg_total_transactions_per_user
@@ -208,7 +208,7 @@ GROUP BY month
 
 <b>Query 06: Average amount of money spent per session. Only include purchaser data in July 2017.</b>
 <br/>
-```
+```sql
 SELECT 
   FORMAT_DATE('%Y%m',PARSE_DATE('%Y%m%d' , date)) AS month,
   ROUND(((SUM(product.productRevenue) / SUM(totals.visits)) / 1000000), 2) AS avg_revenue_by_user_per_visit
@@ -230,7 +230,7 @@ GROUP BY month
 
 <b>Query 07: Other products purchased by customers who purchased product "YouTube Men's Vintage Henley" in July 2017</b>
 <br/>
-```
+```sql
 WITH buyer_list AS (
     SELECT
         distinct fullVisitorId  
@@ -273,7 +273,7 @@ ORDER BY quantity DESC;
 
 **Query 08: Calculate cohort map from product view to addtocart to purchase in Jan, Feb and March 2017. For example, 100% product view then 40% add_to_cart and 10% purchase.**
 <br/>
-```
+```sql
 WITH
   product_view AS (
     SELECT 
