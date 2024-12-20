@@ -30,7 +30,7 @@
 
 <h2>IV. Exploring Dataset</h2>
 
-<b>Query 01: calculate total visit, pageview, transaction for Jan, Feb and March 2017</b>
+<b>Query 01: Calculate total visit, pageview, transaction for Jan, Feb and March 2017</b>
 <br/>
 ```
 SELECT 
